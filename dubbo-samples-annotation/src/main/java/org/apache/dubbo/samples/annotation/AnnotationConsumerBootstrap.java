@@ -31,8 +31,8 @@ public class AnnotationConsumerBootstrap {
         context.start();
         final AnnotationAction annotationAction = (AnnotationAction) context.getBean("annotationAction");
 
-        // System.out.println("hello : " + annotationAction.doSayHello("world"));
-        // System.out.println("goodbye : " + annotationAction.doSayGoodbye("world"));
+        System.out.println("hello : " + annotationAction.doSayHello("world"));
+        System.out.println("goodbye : " + annotationAction.doSayGoodbye("world"));
         System.out.println("greeting : " + annotationAction.doGreeting("world"));
         System.out.println("reply : " + annotationAction.replyGreeting("world"));
     }
