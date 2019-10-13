@@ -24,28 +24,19 @@ import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.samples.annotation.AnnotationConstants;
 import org.apache.dubbo.samples.annotation.api.GreetingService;
 import org.apache.dubbo.samples.annotation.api.HelloService;
-
 import org.springframework.stereotype.Component;
 
 @Component("annotationAction")
 public class AnnotationAction {
 
-    @Reference(interfaceClass = HelloService.class, version = AnnotationConstants.VERSION /*,
-            methods = {
-                    @Method(
-                            name = "sayHello",
-                            oninvoke = "notify.oninvoke",
-                            onreturn = "notify.onreturn",
-                            onthrow = "notify.onthrow")
-            }
-             */
-    )
+    @Reference(interfaceClass = HelloService.class, version = AnnotationConstants.VERSION)
     private HelloService helloService;
 
+    // FIXME 指定method的调用规则不生效
     @Reference(interfaceClass = GreetingService.class,
             version = AnnotationConstants.VERSION,
             timeout = 1000,
-            methods = {@Method(name = "greeting", timeout = 3000, retries = 1)})
+            methods = {@Method(name = "greeting", timeout = 4000, retries = 1)})
     private GreetingService greetingService;
 
     public String doSayHello(String name) {
@@ -71,7 +62,7 @@ public class AnnotationAction {
         try {
             return greetingService.greeting(name);
         } catch (Exception e) {
-            e.printStackTrace();
+            // e.printStackTrace();
             return "Throw Exception";
         }
 
@@ -81,7 +72,7 @@ public class AnnotationAction {
         try {
             return greetingService.replyGreeting(name);
         } catch (Exception e) {
-            e.printStackTrace();
+            // e.printStackTrace();
             return "Throw Exception";
         }
     }

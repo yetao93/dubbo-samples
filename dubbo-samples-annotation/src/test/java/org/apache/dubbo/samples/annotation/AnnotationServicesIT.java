@@ -18,7 +18,6 @@
 package org.apache.dubbo.samples.annotation;
 
 import org.apache.dubbo.samples.annotation.action.AnnotationAction;
-
 import org.apache.dubbo.samples.annotation.config.ConsumerConfiguration;
 import org.junit.Assert;
 import org.junit.Test;
@@ -30,6 +29,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {ConsumerConfiguration.class})
 public class AnnotationServicesIT {
+
     @Autowired
     private AnnotationAction annotationAction;
 
@@ -40,7 +40,7 @@ public class AnnotationServicesIT {
 
     @Test
     public void testSayGoodbye() throws Exception {
-        Assert.assertEquals("Throw Exception", annotationAction.doSayGoodbye("dubbo"));
+        Assert.assertEquals("Goodbye, dubbo", annotationAction.doSayGoodbye("dubbo"));
     }
 
     @Test

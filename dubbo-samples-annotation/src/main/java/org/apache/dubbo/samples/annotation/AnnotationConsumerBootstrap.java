@@ -20,7 +20,6 @@
 package org.apache.dubbo.samples.annotation;
 
 import org.apache.dubbo.samples.annotation.action.AnnotationAction;
-
 import org.apache.dubbo.samples.annotation.config.ConsumerConfiguration;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -31,10 +30,10 @@ public class AnnotationConsumerBootstrap {
         context.start();
         final AnnotationAction annotationAction = (AnnotationAction) context.getBean("annotationAction");
 
-        System.out.println("hello : " + annotationAction.doSayHello("world"));
-        System.out.println("goodbye : " + annotationAction.doSayGoodbye("world"));
+        // System.out.println("hello : " + annotationAction.doSayHello("world"));
+        // System.out.println("goodbye : " + annotationAction.doSayGoodbye("world"));
         System.out.println("greeting : " + annotationAction.doGreeting("world"));
-        System.out.println("reply : " + annotationAction.replyGreeting("world"));
+        // System.out.println("reply : " + annotationAction.replyGreeting("world"));
     }
 
 
