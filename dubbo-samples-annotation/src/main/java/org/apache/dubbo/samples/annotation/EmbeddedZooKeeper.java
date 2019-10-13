@@ -31,7 +31,8 @@ import java.util.Properties;
 import java.util.UUID;
 
 /**
- * from: https://github.com/spring-projects/spring-xd/blob/v1.3.1.RELEASE/spring-xd-dirt/src/main/java/org/springframework/xd/dirt/zookeeper/ZooKeeperUtils.java
+ * from: https://github.com/spring-projects/spring-xd/blob/v1.3.1
+ * .RELEASE/spring-xd-dirt/src/main/java/org/springframework/xd/dirt/zookeeper/ZooKeeperUtils.java
  * <p>
  * Helper class to start an embedded instance of standalone (non clustered) ZooKeeper.
  * <p>
@@ -108,6 +109,14 @@ public class EmbeddedZooKeeper implements SmartLifecycle {
     }
 
     /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean isAutoStartup() {
+        return this.autoStartup;
+    }
+
+    /**
      * Specify whether to start automatically. Default is true.
      *
      * @param autoStartup whether to start automatically
@@ -120,8 +129,8 @@ public class EmbeddedZooKeeper implements SmartLifecycle {
      * {@inheritDoc}
      */
     @Override
-    public boolean isAutoStartup() {
-        return this.autoStartup;
+    public int getPhase() {
+        return this.phase;
     }
 
     /**
@@ -131,14 +140,6 @@ public class EmbeddedZooKeeper implements SmartLifecycle {
      */
     public void setPhase(int phase) {
         this.phase = phase;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public int getPhase() {
-        return this.phase;
     }
 
     /**

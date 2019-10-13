@@ -19,7 +19,6 @@ package org.apache.dubbo.samples.annotation.impl;
 
 
 import org.apache.dubbo.samples.annotation.api.Notify;
-
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
