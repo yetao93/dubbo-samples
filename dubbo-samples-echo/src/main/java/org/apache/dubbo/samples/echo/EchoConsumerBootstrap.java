@@ -32,8 +32,7 @@ public class EchoConsumerBootstrap {
         context.start();
         HelloService helloService = (HelloService) context.getBean("helloService"); // get remote service proxy
 
-        EchoService echoService = (EchoService) helloService;
-        String status = (String)echoService.$echo("OK");
+        String status = helloService.sayHello("OK");
         System.out.println("echo result: " + status);
     }
 }
