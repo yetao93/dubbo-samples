@@ -19,8 +19,6 @@
 
 package org.apache.dubbo.samples.annotation.config;
 
-import org.apache.dubbo.samples.annotation.support.EmbeddedZooKeeper;
-
 import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Configuration;
@@ -29,8 +27,8 @@ import org.springframework.context.annotation.PropertySource;
 public class ProviderBootstrap {
 
     public static void main(String[] args) throws Exception {
-        new EmbeddedZooKeeper(2181, false).start();
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ProviderConfiguration.class);
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(ProviderConfiguration.class);
         context.start();
         System.in.read();
     }

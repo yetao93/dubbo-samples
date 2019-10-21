@@ -32,7 +32,6 @@ import org.springframework.context.annotation.Configuration;
 public class AnnotationProviderBootstrap {
 
     public static void main(String[] args) throws Exception {
-        new EmbeddedZooKeeper(2181, false).start();
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ProviderConfiguration.class);
         context.start();
         System.in.read();
